@@ -16,34 +16,34 @@ const dataSchema = new Schema({
 });
 
 
-const schema = new Schema({ 
-  name: String,
-  names: [{ type: mongoose.Types.ObjectId }],
-  data1: dataSchema,
-  data2: [dataSchema],
+// const schema = new Schema({ 
+//   name: String,
+//   names: [{ type: mongoose.Types.ObjectId }],
+//   data1: dataSchema,
+//   data2: [dataSchema],
 
-  data3: [ {firstName: String, lastName: String} ],
+//   data3: [ {firstName: String, lastName: String} ],
 
-  data4: {
-    firstName: String,
-    lastName: String,
-    dob: Date,
-    nested: {
-      someValues: Number
-    }
-  }
-});
+//   data4: {
+//     firstName: String,
+//     lastName: String,
+//     dob: Date,
+//     nested: {
+//       someValues: Number
+//     }
+//   }
+// });
 
-
-
-
-schema.paths; // { name: SchemaString { ... } }
-
-schema.add({ age: { type: Number, min: 50, } });
-
-schema.path('data4.firstName', Number);
+let schema = new Schema({ friends: [ { name: String, age: Number } ] });
 
 
+
+
+
+console.log(schema.path('friends').$embeddedSchemaType); // { name: SchemaString { ... } }
+
+
+/*
 schema.eachPath((path, schemaType) => {
   console.log('***path: ', path);
   if(schemaType instanceof DocumentArrayPath) {
@@ -55,6 +55,7 @@ schema.eachPath((path, schemaType) => {
   }
   console.log(schemaType.constructor.name)
 })
+*/
 
 
 // console.log(schema.childSchemas);
