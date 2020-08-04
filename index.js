@@ -26,12 +26,12 @@ const types = {
         value = _get(faker, schemaTypeOptions.faker)();
       } else value = faker.random.word();
 
-      const { lowercase, uppercase, trim, minLength, maxLength } = schemaTypeOptions;
+      const { lowercase, uppercase, trim, minlength, maxlength } = schemaTypeOptions;
       if(lowercase) value = value.toLowerCase();
       if(uppercase) value = value.toUpperCase();
       if(trim) value = value.trim();
-      if(minLength && value.length < min) value = value; // @todo: How do I ensure a min length for string values
-      if(maxLength && value.length > maxLength) value = value.slice(0, maxLength);
+      if(minlength && value.length < minlength) value = value; // @todo: How do I ensure a min length for string values
+      if(maxlength && value.length > maxlength) value = value.slice(0, maxlength);
     
       return value;
     },
