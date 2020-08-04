@@ -13,5 +13,8 @@
   "devDependencies": {
     "@types/jest": "^26.0.7",
     "sinon": "^9.0.2"
+  },
+  "scripts": {
+    "test": "jest ./tests/**.test.js --env=node -c"
   }
 }
