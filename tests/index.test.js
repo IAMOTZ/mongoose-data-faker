@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const sinon = require('sinon');
+const faker = require('faker/locale/en_US'); 
 const code = require("../.");
 
 expect.extend({
@@ -25,8 +27,6 @@ expect.extend({
 });
 
 const { Schema } = mongoose;
-
-const faker$name$firstName = "mockedFirstName";
 
 describe("mongoose-random-data-generator", () => {
   describe("SchemaString", () => {
@@ -70,35 +70,42 @@ describe("mongoose-random-data-generator", () => {
     });
 
     it("should trim the generated string", () => {
-      // @todo: I need to mock the result of faker here
       const unTrimmedString = "  Tunmise  ";
+      sinon.stub(faker.random, 'word').callsFake(() => unTrimmedString);
+
       let schema = new Schema({ name: { type: String, trim: true } });
 
       const result = code(schema, 1);
 
       expect(result[0].name).toEqual(unTrimmedString.trim());
+      faker.random.word.restore();
     });
 
     it("should generate string with a max length", () => {
-      // @todo: I need to mock the result of faker here
       const longString = "Funmilayo";
-      let schema = new Schema({ name: { type: "String", max: 5 } });
+      sinon.stub(faker.random, 'word').callsFake(() => longString);
+
+      let schema = new Schema({ name: { type: "String", maxlength: 5 } });
 
       const result = code(schema, 1);
 
       expect(result[0].name).toHaveLength(5);
       expect(result[0].name).toEqual(longString.slice(0, 5));
+      faker.random.word.restore();
     });
 
     it("should generate string with faker option", () => {
-      // @todo: I need to mock the result of faker here
+      const fakerString = "Olaide";
+      sinon.stub(faker.name, 'firstName').callsFake(() => fakerString);
+
       let schema = new Schema({
         name: { type: "String", faker: "name.firstName" },
       });
 
       const result = code(schema, 1);
 
-      expect(result[0].name).toEqual(faker$name$firstName);
+      expect(result[0].name).toEqual(fakerString);
+      faker.name.firstName.restore();
     });
   });
 
