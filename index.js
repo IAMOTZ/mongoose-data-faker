@@ -12,6 +12,8 @@ const selectFromEnum = (typeOptions) => {
   return typeOptions.enum[selector];
 }
 
+// @todo: I thikn I can use a map to compose this types object so that 
+// I won't have to  do schemaType.[Type].name just to get a string... a function can hold as key
 const types = {
   [mongoose.SchemaTypes.String.name]: {
     generator: (schemaType) => {
@@ -80,6 +82,12 @@ const types = {
       const values = [true, false];
       const selector = Math.round(Math.random());
       return values[selector];
+    },
+  },
+  [mongoose.SchemaTypes.Buffer.name]: {
+    generator: () => {
+      const randomString = faker.random.word();
+      return Buffer.from(randomString);
     },
   },
   [mongoose.SchemaTypes.Array.name]: {

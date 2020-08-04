@@ -245,6 +245,22 @@ describe("mongoose-random-data-generator", () => {
     });
   });
 
+  describe("SchemaBuffer", () => {
+    it("should generate a length of random buffer objects", () => {
+      const bufferData = 'Tunmise';
+      sinon.stub(faker.random, 'word').callsFake(() => bufferData);
+      
+      let schema = new Schema({ data: { type: Buffer } });
+
+      const result = code(schema, 3);
+
+      result.forEach((res) => {
+        expect(Buffer.isBuffer(res.data)).toEqual(true);
+        expect(res.data.toString()).toEqual(bufferData);
+      });
+    });
+  });
+
   describe("SchemaMixed", () => {
     it("should generate a length of any random type", () => {
       let schema = new Schema({ data: {} });
