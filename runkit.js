@@ -1,5 +1,4 @@
-// Implement runkit custom output here
-
+// This module can be a separate package on its own
 const { ValueViewerSymbol } = require("@runkit/value-viewer")
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -24,7 +23,7 @@ const HTML = (data) => `` +
 </html>
 `
 
-module.exports = (data) => ({
+module.exports.JSONView = (data) => ({
   [ValueViewerSymbol]: {
     title: 'mongoose-random-data',
     HTML: HTML(data),

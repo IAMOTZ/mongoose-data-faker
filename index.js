@@ -161,8 +161,8 @@ const main = (schema, count) => {
   return result;
 }
 
-module.exports.core = main;
-module.exports.runkitView = require('./runkit');
+module.exports.generate = main;
+module.exports.runkitJSONView = require('./runkit').JSONView;
 
 
 
