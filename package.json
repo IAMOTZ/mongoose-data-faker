@@ -5,10 +5,14 @@
   "author": "Tunmise Ogunniyi",
   "license": "MIT",
   "dependencies": {
+    "@runkit/value-viewer": "^1.0.0",
     "faker": "^4.1.0",
     "jest": "^26.2.1",
     "lodash": "^4.17.19",
-    "mongoose": "^5.9.24"
+    "mongoose": "^5.9.24",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-json-pretty": "^2.2.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.7",
