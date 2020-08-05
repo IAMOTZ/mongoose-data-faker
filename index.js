@@ -162,7 +162,7 @@ const main = (schema, count) => {
 }
 
 module.exports.core = main;
-module.export.runkitView = require('./runkit');
+module.exports.runkitView = require('./runkit');
 
 
 
