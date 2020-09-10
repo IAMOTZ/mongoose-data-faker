@@ -98,7 +98,8 @@ const types = {
       // @todo: Confirm api usage
       const embeddedType = schemaType.$embeddedSchemaType;
       if(!types[embeddedType.constructor.name]) {
-        throw Error('Schemat type does not have a generator at path ??')
+        // Return null for unrecognized schema path
+        return [null];
       }
       const result = types[embeddedType.constructor.name].generator(embeddedType);
       return [result];
@@ -145,14 +146,14 @@ const main = (schema, count) => {
     const tree = {};
 
     schema.eachPath((path, schemaType) => {
-    
       // @todo: Confirm api usage
       if(!types[schemaType.constructor.name]) {
-        throw Error(`Sorry 😔, the schema type for path ${path} does not have a generator`)
+        // Set null for unrecognized schema path
+        _set(tree, path, null);
+        return;
       }
 
       const value = types[schemaType.constructor.name].generator(schemaType);
-
       _set(tree, path, value);
     })
     result.push(tree);
