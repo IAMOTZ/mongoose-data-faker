@@ -12,8 +12,6 @@ const selectFromEnum = (typeOptions) => {
   return typeOptions.enum[selector];
 }
 
-// @todo: I thikn I can use a map to compose this types object so that 
-// I won't have to  do schemaType.[Type].name just to get a string... a function can hold as key
 const types = {
   [mongoose.SchemaTypes.String.name]: {
     generator: (schemaType) => {
@@ -165,30 +163,3 @@ const main = (schema, count) => {
 module.exports.generate = main;
 module.exports.runkitJSONView = require('./runkit').JSONView;
 
-
-
-
-/*
-
-TODO:
-
-Testing
-- Load testing - how the module behaves for very large amount of generation
-* It's fine if it takes a lot of time to complete, what it shouldn't do is max out the memory
-* Should I add restriction on the amount of data generatable
-  * I think it would be wise to add the restriction on the size of the data and not just the amount of data as schema size would differ
-
-- Complex schemas - testing different combination of complex schemas
-- Schema Size - hwo the module behaves for very large achema size that I might want to even generate a little number of data for
-
-P1
-- Execute generation loop in parallel
-- What if the user is using a custom plugin that is adding a custom schema type that
-this package is not aware of - I may need to expose an API that would allow people extend or add their own generators
-- Add a way to specify the number of documents to generate in an array 
-- How do I ensure a min length for string values
-- More than often, peole would want unique values for specific schema type, how can I ensure this?
-
-P2
-- I can make the core generation code available via CLI as well as a npm package
-*/
