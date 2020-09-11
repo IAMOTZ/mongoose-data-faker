@@ -28,7 +28,7 @@ expect.extend({
 
 const { Schema } = mongoose;
 
-describe("mongoose-random-data-generator", () => {
+describe("mongoose-data-faker-generator", () => {
   describe("SchemaString", () => {
     it("should generate a length of random strings", () => {
       let schema = new Schema({ name: { type: String } });

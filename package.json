@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-random-data",
+  "name": "mongoose-data-faker",
   "version": "1.0.4",
   "main": "index.js",
   "author": "Tunmise Ogunniyi",

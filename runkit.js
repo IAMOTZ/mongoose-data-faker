@@ -25,7 +25,7 @@ const HTML = (data) => `` +
 
 module.exports.JSONView = (data) => ({
   [ValueViewerSymbol]: {
-    title: 'mongoose-random-data',
+    title: 'mongoose-data-faker',
     HTML: HTML(data),
   }
 });
