@@ -1,6 +1,15 @@
 # Mongoose Data Faker
 Generate random fake data with your mongoose schema. Demo application is available [here](https://mongoose-data-faker.herokuapp.com/).
 
+## Installation
+```bash
+# Using npm
+npm i mongoose-data-faker
+
+# Using yarn
+yarn add mongoose-data-faker
+```
+
 ## Usage  
 
 ```javascript
@@ -114,7 +123,7 @@ While the inspiration for this project is from answering questions on StackOverf
 ## Contribution
 Contributions are highly welcomed. To contribute to this project:
 
-- Fork the repository
+- Fork the [repository](https://github.com/IAMOTZ/mongoose-data-faker)
 - Create a new branch for your contribution in the forked repo
 - Commit your changes with detailed commit messages
 - Raise a pull request from your forked repository to the main repository.
