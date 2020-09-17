@@ -1,9 +1,25 @@
 {
   "name": "mongoose-data-faker",
   "version": "0.1.1",
+  "description": "Generate random fake data with your mongoose schema",
   "main": "index.js",
-  "author": "Tunmise Ogunniyi",
+  "author": "Tunmise Ogunniyi <ogunniyitunmise@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IAMOTZ/mongoose-data-faker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IAMOTZ/mongoose-data-faker/issues"
+  },
+  "homepage": "https://github.com/IAMOTZ/mongoose-data-faker#readme",
+  "keywords": [
+    "mongoose",
+    "fake",
+    "data",
+    "random",
+    "schema"
+  ],
   "dependencies": {
     "@runkit/value-viewer": "^1.0.0",
     "faker": "^4.1.0",
