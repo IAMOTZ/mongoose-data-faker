@@ -1,6 +1,6 @@
 {
   "name": "mongoose-data-faker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate random fake data with your mongoose schema",
   "main": "index.js",
   "author": "Tunmise Ogunniyi <ogunniyitunmise@gmail.com>",
